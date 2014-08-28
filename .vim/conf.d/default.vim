@@ -1,13 +1,27 @@
+set title " タイトルを表示
 set ruler " カーソル位置の表示
 set number " 行番号の表示
 set list listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲ " 不可視文字の表示
 set wrap " 折り返し
 set expandtab tabstop=2 shiftwidth=2 " インデントの設定
+set whichwrap=b,s,h,l,[,],<,>
 set autoindent paste
 set clipboard=unnamed,autoselect
 set novisualbell t_vb= " ベルを無効化
 set nowritebackup nobackup noswapfile " Swapファイルの無効化
 set laststatus=2
+set ignorecase " 大文字小文字を区別しない
+set smartcase " 検索文字に大文字がある場合は区別
+set wrapscan " 最後まで検索したら最初に戻る
+set incsearch " インクリメンタルサーチ
+set hlsearch " 検索文字をハイライト
+set showmatch " 対応する括弧のハイライト
+set ambiwidth=double " □や○の文字があってもカーソル位置がずれないようにする
+set wildmenu " コマンドライン補完するときに強化されたものを使う
+
+" バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 if has('win32') || has('win64')
   set shellslash " Windowsの区切り文字を変更

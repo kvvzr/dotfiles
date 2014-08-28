@@ -15,9 +15,10 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'kana/vim-submode'
+NeoBundleCheck
+
+let g:vimfiler_as_default_explorer=1
 
 " vim-quickrun
 let g:quickrun_config={'*': {'split': ''}}
