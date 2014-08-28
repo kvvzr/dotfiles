@@ -33,6 +33,7 @@ alias rm='rmtrash'
 alias cp='cp -i'
 alias mv='mv -i'
 alias be='bundle exec'
+alias claer='clear'
 
 autoload -Uz colors && colors
 autoload -Uz vcs_info
