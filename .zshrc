@@ -34,6 +34,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias be='bundle exec'
 alias claer='clear'
+alias vf='vim -c "VimFiler -split -simple -winwidth=35 -toggle -no-quit -auto-cd"'
 
 autoload -Uz colors && colors
 autoload -Uz vcs_info
@@ -41,6 +42,7 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 
+export GIT_MERGE_AUTOEDIT=no
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
@@ -59,8 +61,8 @@ GIT_PS1_DESCRIBE_STYLE="default"
 GIT_PS1_SHOWCOLORHINTS=1
 
 precmd() {
-  # local upstream=`echo $(__git_ps1 %s) | sed -e "s/u+\([0-9]*\)/up\1"/`
-  RPROMPT="%U%B%{$fg[yellow]%}"$(__git_ps1 %s)"%{$reset_color%}%u%b"
+    # local upstream=`echo $(__git_ps1 %s) | sed -e "s/u+\([0-9]*\)/up\1"/`
+    RPROMPT="%U%B%{$fg[yellow]%}"$(__git_ps1 %s)"%{$reset_color%}%u%b"
 }
 
 source $HOME/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
