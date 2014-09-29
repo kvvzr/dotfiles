@@ -35,6 +35,7 @@ alias mv='mv -i'
 alias be='bundle exec'
 alias claer='clear'
 alias vf='vim -c "VimFiler -split -simple -winwidth=35 -toggle -no-quit -auto-cd"'
+alias wireshark='sudo /usr/local/Cellar/wireshark/1.12.0_1/bin/wireshark-qt &> /dev/null'
 
 autoload -Uz colors && colors
 autoload -Uz vcs_info

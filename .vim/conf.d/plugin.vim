@@ -33,9 +33,20 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundleCheck
 
 let g:vimfiler_as_default_explorer=1
+let g:vimfiler_safe_mode_by_default=0
+" 'v'でファイルを開くときは右側に開く
+let g:netrw_altv = 1
+" 'o'でファイルを開くときは下側に開く
+let g:netrw_alto = 1
+
+augroup VimFiler
+    autocmd Filetype vimfiler nunmap <buffer> -
+augroup END
+
 let g:choosewin_blink_on_land = 0
 " vim-quickrun
 let g:quickrun_config={'*': {'split': ''}}
@@ -48,4 +59,3 @@ augroup RSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
-
