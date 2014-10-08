@@ -25,7 +25,7 @@ setopt prompt_subst
 setopt transient_rprompt
 
 export EDITOR=~/Applications/MacVim.app/Contents/MacOS/Vim
-alias vim='env LANG=ja_JP.UTF-8 ~/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+# alias vim='env LANG=ja_JP.UTF-8 ~/Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias ls='ls -GF'
 alias ll='ls -l'
 alias la='ls -a'

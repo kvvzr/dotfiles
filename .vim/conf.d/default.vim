@@ -20,6 +20,7 @@ set ambiwidth=double " □や○の文字があってもカーソル位置がず
 set wildmenu " コマンドライン補完するときに強化されたものを使う
 set foldmethod=indent
 set foldlevel=20
+set backspace=indent,eol,start
 
 " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
