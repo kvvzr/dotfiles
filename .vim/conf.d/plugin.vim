@@ -38,6 +38,7 @@ NeoBundle 'wting/rust.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'jszakmeister/vim-togglecursor'
 if has('lua')
     NeoBundle 'Shougo/neocomplete'
 endif
@@ -81,3 +82,10 @@ if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
+
+let g:yankring_history_file = '.yankring_history'
+
+let g:togglecursor_default = "block"
+let g:togglecursor_insert = "line"
+let g:togglecursor_leave = "line"
+let g:togglecursor_disable_tmux = 0
