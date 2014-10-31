@@ -3,8 +3,8 @@ export PATH=/usr/local/bin:$HOME/bin:$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init - zsh)"
 export CC=/usr/bin/gcc
 
-source $HOME/.dotfiles/chpwd.sh
-source $HOME/.dotfiles/git-prompt.sh
+source $HOME/dotfiles/.zsh/chpwd.sh
+source $HOME/dotfiles/.zsh/git-prompt.sh
 
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
@@ -66,4 +66,8 @@ precmd() {
     RPROMPT="%U%B%{$fg[yellow]%}"$(__git_ps1 %s)"%{$reset_color%}%u%b"
 }
 
-source $HOME/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+search() {
+    find . -name "*${2}" -print | xargs grep --color=always -nir "${1}" | less -R
+}
+
+source $HOME/dotfiles/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

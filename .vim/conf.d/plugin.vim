@@ -1,11 +1,8 @@
 if has('vim_starting')
-  if has('win32') || has('win64')
-  elseif has('unix')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-  endif
+  set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim
 endif
 
-call neobundle#rc()
+call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
@@ -43,6 +40,8 @@ if has('lua')
     NeoBundle 'Shougo/neocomplete'
 endif
 NeoBundleCheck
+
+call neobundle#end()
 
 "caw.vim(コメントアウト)のキーバインド
 nmap <C-K> <Plug>(caw:i:toggle)
