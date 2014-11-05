@@ -36,6 +36,7 @@ alias be='bundle exec'
 alias claer='clear'
 alias vf='vim -c "VimFiler -split -simple -winwidth=35 -toggle -no-quit -auto-cd"'
 alias wireshark='sudo /usr/local/Cellar/wireshark/1.12.0_1/bin/wireshark-qt &> /dev/null'
+alias s='ls'
 
 autoload -Uz colors && colors
 autoload -Uz vcs_info
@@ -49,6 +50,7 @@ export HISTSIZE=1000
 export SAVEHIST=100000
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
+export LESSHISTFILE=-
 
 PROMPT="%U%B%{$fg[cyan]%} %~ %{$reset_color%}%u%b"
 PROMPT+="%U%(?.%{$fg[green]%}.%{$fg[magenta]%}) $ %{$reset_color%}%u "

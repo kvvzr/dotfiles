@@ -6,7 +6,7 @@ git submodule update --init
 
 for dotfiles in .?*; do
     case $dotfiles in 
-        .. | .git* | .vim | .zsh)
+        .. | .git | .gitignore | .gitmodules | .vim | .zsh)
             continue;;
         *)
             ln -Fis "$PWD/$dotfiles" $HOME;;

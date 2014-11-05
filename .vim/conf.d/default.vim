@@ -22,6 +22,7 @@ set foldmethod=indent
 set foldlevel=20
 set backspace=indent,eol,start
 set conceallevel=0 " めっちゃうざいConcealをオフ
+set viminfo=
 
 " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'

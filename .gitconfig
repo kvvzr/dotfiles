@@ -1,0 +1,35 @@
+[user]
+    name = kvvzr
+    email = kwzr@twinkrun.net
+
+[credential]
+    helper = osxkeychain
+
+[alias]
+    log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+    log-all = log --graph --all --color --pretty='%x09%h  %cn%x09%s %Cred%d%Creset' 
+    today = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --since=midnight --oneline --author=\"`git config --get user.name`\"'"
+    ignore = !"f() { local s=$1; shift; \
+      while [ $# -gt 0 ]; do s="$s,$1"; shift; done;\
+      curl "https://www.gitignore.io/api/$s"; }; f"
+[core]
+    editor = vim -c \"set fenc=utf-8\"
+    excludesfile = /Users/PEA/.gitignore_global
+    sparsecheckout = true
+
+[color]
+    ui = auto
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[merge]
+    ff = false
+[push]
+    defalut = simple
+    default = current
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
