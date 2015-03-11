@@ -17,27 +17,25 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'kana/vim-submode'
 NeoBundle 't9md/vim-choosewin'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'rhysd/vim-textobj-ruby'
-NeoBundle 'mattn/emmet-vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'tyru/caw.vim.git'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'jszakmeister/vim-togglecursor'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'derekelkins/agda-vim'
 if has('lua')
-    NeoBundle 'Shougo/neocomplete'
+    " NeoBundle 'Shougo/neocomplete'
+    " NeoBundle 'Shougo/neosnippet'
+    " NeoBundle 'Shougo/neosnippet-snippets'
 endif
 NeoBundleCheck
 
@@ -69,10 +67,12 @@ set splitbelow
 let g:quickrun_config._ = {'runner' : 'vimproc', "runner/vimproc/updatetime" : 10}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': 'bundle exec', 'exec': '%o %c %s', 'outputter': 'buffer:filetype=rspec-result', 'filetype': 'rspec-result'}
 let g:quickrun_config['ruby.bundle'] = {'command': 'ruby', 'cmdopt': 'bundle exec', 'exec': '%o %c %s'}
+let g:quickrun_config['ruby.thin'] = {'command': 'rackup', 'cmdopt': 'bundle exec', 'exec': '%o %c'}
 augroup RSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_ignore_case = 1
@@ -82,9 +82,19 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 
+inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
+inoremap <expr><C-Tab> pumvisible() ? "\<Up>" : "\<C-Tab>"
+
 let g:yankring_history_file = '.yankring_history'
 
 let g:togglecursor_default = "block"
 let g:togglecursor_insert = "line"
 let g:togglecursor_leave = "line"
 let g:togglecursor_disable_tmux = 0
+
+cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+let g:neosnippet#snippets_directory = '~/dotfiles/.vim/snippets/'
