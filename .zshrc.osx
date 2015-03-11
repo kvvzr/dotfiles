@@ -1,0 +1,20 @@
+# path
+export PATH=$HOME/bin:$PATH
+export CC=/usr/bin/gcc
+
+# alias
+alias rm='rmtrash'
+
+# go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# mysql
+export PATH=$PATH:/usr/local/mysql/bin
+
+# Melete
+alias pmid="ls -lt | awk 'NR == 2 {print \$9}' | xargs timidity"
+alias omid="ls -lt | awk 'NR == 2 {print \$9}' | xargs open"
+
+# pylearn2
+export PYLEARN2_DATA_PATH=$HOME/dataset
+export PYLEARN2_VIEWER_COMMAND='open -Wn'
