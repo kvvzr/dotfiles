@@ -22,6 +22,10 @@ nnoremap g# g#zz
 vnoremap < <gv
 vnoremap > >gv
 
+" あれ
+imap <C-a> <Home>
+imap <C-e> <End>
+
 " set pasteをかってにやる
 if &term =~ "xterm"
     let &t_ti .= "\e[?2004h"
