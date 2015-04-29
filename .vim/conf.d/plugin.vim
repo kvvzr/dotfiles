@@ -25,18 +25,30 @@ NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'wting/rust.vim'
-NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'osyo-manga/vim-over'
+
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'derekelkins/agda-vim'
+NeoBundle 'sophacles/vim-processing'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'mopp/AOJ.vim'
+NeoBundle 'mattn/webapi-vim'
+
 if has('lua')
-    " NeoBundle 'Shougo/neocomplete'
-    " NeoBundle 'Shougo/neosnippet'
-    " NeoBundle 'Shougo/neosnippet-snippets'
+    NeoBundle 'Shougo/neocomplete'
+    NeoBundle 'Shougo/neosnippet'
+    NeoBundle 'Shougo/neosnippet-snippets'
 endif
+
+if has('mac')
+    NeoBundle 'toyamarinyon/vim-swift'
+endif
+
+NeoBundle 'tyru/caw.vim.git'
+
 NeoBundleCheck
 
 call neobundle#end()
@@ -64,10 +76,15 @@ let g:quickrun_config={'*': {'split': ''}}
 set splitbelow
 
 " rspec
+
 let g:quickrun_config._ = {'runner' : 'vimproc', "runner/vimproc/updatetime" : 10}
+let g:quickrun_config['cpp'] = {'runner': 'system'}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec', 'cmdopt': 'bundle exec', 'exec': '%o %c %s', 'outputter': 'buffer:filetype=rspec-result', 'filetype': 'rspec-result'}
 let g:quickrun_config['ruby.bundle'] = {'command': 'ruby', 'cmdopt': 'bundle exec', 'exec': '%o %c %s'}
 let g:quickrun_config['ruby.thin'] = {'command': 'rackup', 'cmdopt': 'bundle exec', 'exec': '%o %c'}
+let g:quickrun_config.processing = {
+\     'command': 'processing-java',
+\     'exec': '%c --sketch=%s:p:h/ --output=/tmp/processing --run --force' }
 augroup RSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec

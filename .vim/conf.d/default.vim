@@ -24,7 +24,7 @@ set backspace=indent,eol,start
 set conceallevel=0 " めっちゃうざいConcealをオフ
 set viminfo=
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+" set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 
 " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
@@ -51,6 +51,17 @@ if has("gui_running")
     set nomousefocus
     set mousehide
 endif
+
+autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | edit ~/dotfiles/.vim/conf.d | endif
+autocmd VimEnter * nested if @% == 'snip' && s:GetBufByte() == 0 | edit ~/dotfiles/.vim/snippets | endif
+function! s:GetBufByte()
+    let byte = line2byte(line('$') + 1)
+    if byte == -1
+        return 0
+    else
+        return byte - 1
+    endif
+endfunction
 
 "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
 augroup BinaryXXD
